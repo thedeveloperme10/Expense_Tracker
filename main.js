@@ -116,6 +116,8 @@ function balance_rectify_income(val){
     // console.log(expense_array);
     // console.log(val);
     // console.log(sum+" "+expense_sum);
+    income_total();
+    expense_total();
 }
 
 function balance_rectify_expense(val){
@@ -135,6 +137,8 @@ function balance_rectify_expense(val){
     var text3 = document.createTextNode(sum - expense_sum);
     h3.appendChild(text3);
     document.getElementById('result2').appendChild(h3).style.fontFamily = "Lucida Console";
+    income_total();
+    expense_total();
 }
 
 function income_total(){
