@@ -42,7 +42,7 @@ function calc(){
         h1.style.fontFamily = "Lucida Console";
         h1.style.textAlign = "center";
         document.getElementById('result').appendChild(h1);
-    
+        
         // let b1=document.createElement('button');
         // b1.style.backgroundColor="red";
         // let t=document.createTextNode('X');
@@ -75,6 +75,8 @@ function calc(){
     }
     document.getElementById('text_value').value='';
     document.getElementById('amount_value').value = '';
+    income_total();
+    expense_total();
 }
 
 function myFunctionIncome() {
@@ -133,4 +135,28 @@ function balance_rectify_expense(val){
     var text3 = document.createTextNode(sum - expense_sum);
     h3.appendChild(text3);
     document.getElementById('result2').appendChild(h3).style.fontFamily = "Lucida Console";
+}
+
+function income_total(){
+    let income_sum = 0;
+    for (let i = 0; i < income_array.length; i++) {
+        income_sum += income_array[i];
+    }
+    var h = document.createElement('h4');
+    var income_text = document.createTextNode("INCOME - " + income_sum);
+    h.appendChild(income_text);
+    document.getElementById('income_total').innerHTML = '';
+    document.getElementById('income_total').appendChild(h);
+}
+
+function expense_total(){
+    let expense_sum_total = 0;
+    for (let i = 0; i < expense_array.length; i++) {
+        expense_sum_total += -(expense_array[i]);
+    }
+    var h = document.createElement('h4');
+    var expense_text = document.createTextNode("EXPENSES - " + expense_sum_total);
+    h.appendChild(expense_text);
+    document.getElementById('expenses_total').innerHTML = '';
+    document.getElementById('expenses_total').appendChild(h);
 }
