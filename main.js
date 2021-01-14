@@ -1,4 +1,3 @@
-let init_flag = 0;
 let income_array=[],expense_array=[];
 function calc(){
     let flag=0;
@@ -17,62 +16,32 @@ function calc(){
         document.getElementsByTagName("small")[1].innerHTML = ""
     }
     amount=parseInt(amount);
-    let balance_amount=amount;
     if(amount<0 && flag===0){
         expense_array.push(amount);
         var h2 = document.createElement('LI');
         var text2 = document.createTextNode(text + "   -   " + (-amount));
         h2.appendChild(text2);
-        h2.style.fontFamily = "Lucida Console";
-        h2.style.textAlign = "center";
-        document.getElementById('result1').appendChild(h2).style.fontFamily = "Lucida Console";
-        // h2.style.fontFamily = "Lucida Console";
-
-        // let b2 = document.createElement('button');
-        // b2.style.backgroundColor="red";
-        // let t = document.createTextNode('X');
-        // b2.appendChild(t);
-        // h2.innerHTML += b2.outerHTML;
-        // document.getElementById('result1').appendChild(h2).style.color = "white";
+        document.getElementById('result1').appendChild(h2);
     }else if(amount>=0 && flag===0){
         income_array.push(amount);
         var h1 = document.createElement('LI');
         var text1 = document.createTextNode(text+"  "+amount);
         h1.appendChild(text1);
-        h1.style.fontFamily = "Lucida Console";
-        h1.style.textAlign = "center";
         document.getElementById('result').appendChild(h1);
-        
-        // let b1=document.createElement('button');
-        // b1.style.backgroundColor="red";
-        // let t=document.createTextNode('X');
-        // b1.appendChild(t);
-        // h1.innerHTML+=b1.outerHTML;
-        // document.getElementById('result').appendChild(h1).style.color="white";
     }
-    if(init_flag===0){
-        if(text!=='' && amount!==''){
-            var h3 = document.createElement('h2');
-            var text3 = document.createTextNode(balance_amount);
-            h3.appendChild(text3);
-            document.getElementById('result2').appendChild(h3).style.fontFamily = "Lucida Console";
-            init_flag=1;
-        }
-    }else{
-        let sum=0;
-        for(let i=0;i<income_array.length;i++){
-            sum+=income_array[i];
-        }
-        let expense_sum = 0;
-        for (let i = 0; i < expense_array.length; i++) {
-            expense_sum += -(expense_array[i]);
-        }
-        document.getElementById('result2').innerHTML='';
-        var h3 = document.createElement('h2');
-        var text3 = document.createTextNode(sum-expense_sum);
-        h3.appendChild(text3);
-        document.getElementById('result2').appendChild(h3).style.fontFamily = "Lucida Console";
+    let sum=0;
+    for(let i=0;i<income_array.length;i++){
+        sum+=income_array[i];
     }
+    let expense_sum = 0;
+    for (let i = 0; i < expense_array.length; i++) {
+        expense_sum += -(expense_array[i]);
+    }
+    document.getElementById('result2').innerHTML='';
+    var h3 = document.createElement('h2');
+    var text3 = document.createTextNode(sum-expense_sum);
+    h3.appendChild(text3);
+    document.getElementById('result2').appendChild(h3);
     document.getElementById('text_value').value='';
     document.getElementById('amount_value').value = '';
     income_total();
@@ -105,17 +74,11 @@ function balance_rectify_income(val){
     for (let i = 0; i < expense_array.length; i++) {
         expense_sum += -(expense_array[i]);
     }
-    if(init_flag===1){
-        document.getElementById('result2').innerHTML = '';
-    }
+    document.getElementById('result2').innerHTML = '';
     var h3 = document.createElement('h2');
     var text3 = document.createTextNode(sum - expense_sum);
     h3.appendChild(text3);
-    document.getElementById('result2').appendChild(h3).style.fontFamily = "Lucida Console";
-    // console.log(income_array);
-    // console.log(expense_array);
-    // console.log(val);
-    // console.log(sum+" "+expense_sum);
+    document.getElementById('result2').appendChild(h3);
     income_total();
     expense_total();
 }
@@ -130,13 +93,11 @@ function balance_rectify_expense(val){
     for (let i = 0; i < expense_array.length; i++) {
         expense_sum += -(expense_array[i]);
     }
-    if (init_flag === 1) {
-        document.getElementById('result2').innerHTML = '';
-    }
+    document.getElementById('result2').innerHTML = '';
     var h3 = document.createElement('h2');
     var text3 = document.createTextNode(sum - expense_sum);
     h3.appendChild(text3);
-    document.getElementById('result2').appendChild(h3).style.fontFamily = "Lucida Console";
+    document.getElementById('result2').appendChild(h3);
     income_total();
     expense_total();
 }
