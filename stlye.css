@@ -2,7 +2,7 @@
     border: 10px solid black;
     padding: 10px;
     margin: 0 auto;
-    width: 50%;
+    width: 300px;
     text-align: center;
     background-color: black;
     color: white;
@@ -10,28 +10,25 @@
 }
 
 .flex-box{
-    display: block;
+    display:flex;
     border: 5px solid black;
-    padding: 10px;
-    justify-content: space-around;
+    padding: 1vh;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
+    justify-content: space-around;
 }
 button{
     background-color: dodgerblue;
     color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
-    width: fit-content;
+    width: auto;
 }
 button:hover{
     background-color: rgb(5, 47, 90);
 }
-small{
-    color: red;
-}
 li{
-    font-size: larger;
-    display:list-item;
+    font-size: small;
+    display:block;
     line-height: 4vh;
 }
