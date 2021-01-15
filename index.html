@@ -7,42 +7,32 @@
     <title>Expense Tracker</title>
 </head>
 <body>
-    
-    <div class="container">
+    <form class="container" id="form">
         <h1>EXPENSE TRACKER</h1>
         <hr><br>
         <label for="text_value" style="font-size: small;">Add a description :</label>
-        <input type="text" id="text_value" name="text_value" style="border: 2px solid black;"><br>
-        <small></small>
+        <input type="text" id="text_value" name="text_value" style="border: 2px solid black;" required><br>
         <br><br>
-        <label for="amount_value" style="font-size: small;">Add an amount :</label>
-        <input type="number" id="amount_value" name="amount_value" style="border: 2px solid black;"><br>
- <h4>("+" value for Income and "-" value for Expense)<h4>
-        <small></small>
+        <label for="amount_value" style="font-size: small; padding-left: 15px;">Add an amount   :</label>
+        <input type="number" id="amount_value" name="amount_value" style="border: 2px solid black;" required><br>
+        <h4>("+" value for Income and "-" value for Expense)<h4>
+        <button type="submit" style="padding: 5px 5px; width: fit-content;">Update Expenses</button>
         <br><br>
-        <button type="submit" onclick="calc()">Update Expenses</button>
-        <br><br>
-        <label for="delete_value_income" style="font-size: small;">Which value to Delete?</label>
-        <input type="number" placeholder="Income" id="delete_value_income" name="delete_value_income" style="border: 2px solid black;">
-        <button type="submit" onclick="myFunctionIncome()">Submit</button>
-        <br><br>
-        <label for="delete_value_expense" style="font-size: small;">Which value to Delete?</label>
-        <input type="number" placeholder="Expense" id="delete_value_expense" name="delete_value_expense" style="border: 2px solid black;">
-        <button type="submit" onclick="myFunctionExpense()">Submit</button>
-        <br><br>
-        <h1 style="text-align: left;" id="income_total">INCOME</h1>
+    </form>
+    <form>
+        <h2 style="text-align: left;" id="income_total">INCOME</h2>
         <div class="flex-box"  style="background-color: rgb(114, 202, 114);">
             <ol id="result" class="result"></ol>
         </div>
-        <h1 style="text-align: left;" id="expenses_total">EXPENSES</h1>
+        <h2 style="text-align: left;" id="expenses_total">EXPENSES</h2>
         <div class="flex-box"  style="background-color: rgb(241, 66, 66);">
             <ol id="result1" class="result1"></ol>
         </div>
-        <h1 style="text-align: left;">BALANCE</h1>
+        <h2 style="text-align: left;">BALANCE</h2>
         <div class="flex-box" style="background-color: goldenrod;">
-            <div id="result2"></div>
+            <div id="result2" style="padding: 1vh;"></div>
         </div>
-    </div>
-    <script src="main.js"></script>
+    </form>
+    <script src="updated.js"></script>
 </body>
 </html>
