@@ -29,6 +29,6 @@ button:hover{
 }
 li{
     font-size: small;
-    display:block;
+    display:list-item;
     line-height: 4vh;
 }
