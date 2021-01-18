@@ -1,12 +1,16 @@
-var object = {
-    incomes_sum:0,
-    expenses_sum:0,
-    incomes:{},
-    expenses: {},
-};
-localStorage.setItem('object',JSON.stringify(object));
 var form = document.getElementById('form');
+var object = JSON.parse(localStorage.getItem('object'));
 
+if(object==null){
+    object = {
+        incomes_sum:0,
+        expenses_sum:0,
+        incomes:{},
+        expenses: {},
+    };
+    localStorage.setItem('object', JSON.stringify(object));
+}
+calc();
 form.addEventListener('submit',function(e){
     e.preventDefault();
     let description = document.getElementById('text_value').value;
@@ -47,7 +51,7 @@ form.addEventListener('submit',function(e){
     }
     
     localStorage.setItem('object',JSON.stringify(object));
-    form.reset(); 
+    form.reset();
 });
 
 
@@ -69,7 +73,7 @@ function calc(){
              object.incomes_sum-=parseInt(object.incomes[button1.value]);
              delete object.incomes[button1.value];
              localStorage.setItem('object',JSON.stringify(object));
-             calc();
+            calc();
          });
          document.getElementById('result').append(button1);
     }
@@ -100,4 +104,5 @@ function calc(){
     h3.innerText = parseInt(object.incomes_sum) - parseInt(object.expenses_sum);
     document.getElementById('result2').innerHTML = '';
     document.getElementById('result2').append(h3);
+
 }
