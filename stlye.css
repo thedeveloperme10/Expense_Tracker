@@ -22,7 +22,10 @@ button{
     color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
-    width: auto;
+    width: fit-content;
+    top: 50%;
+    right: 0;
+    transform: translate(400%, -100%);
 }
 button:hover{
     background-color: rgb(5, 47, 90);
