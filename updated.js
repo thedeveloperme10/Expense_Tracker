@@ -100,7 +100,7 @@ function calc(){
         document.getElementById('result1').append(button1);
     }
 
-    let h3 = document.createElement('h2');
+    let h3 = document.createElement('h4');
     h3.innerText = parseInt(object.incomes_sum) - parseInt(object.expenses_sum);
     document.getElementById('result2').innerHTML = '';
     document.getElementById('result2').append(h3);
